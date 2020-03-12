@@ -37,10 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Django Apps
+    'django.contrib.sites',
     
-    # Django Rest Framework
+    # djangorestframework
     'rest_framework',
+    'rest_framework.authtoken',
     
+    # django-rest-auth
+    'rest_auth',
+    'rest_auth.registration',
+    
+    # django-allauth
+    'allauth',
+    'allauth.account',
+
     # Custom Applications
     'users'
 ]
@@ -125,4 +137,23 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# [BAY] To describe User Model
 AUTH_USER_MODEL = "users.CustomUser"
+
+# [BAY] It is required for django-rest-auth and django-allauth
+SITE_ID = 1
+
+# [BAY] Configuration for django-allauth
+# Pls have a look at 
+# https://django-allauth.readthedocs.io/en/latest/configuration.html
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_REQUIRED = (True)
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
