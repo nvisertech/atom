@@ -14,7 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,6 @@ urlpatterns = [
     path('api/rest-auth/', include('rest_auth.urls')),
     # Registration via Rest
     path('api/rest-auth/registration/', include('rest_auth.registration.urls')),
+    # path("", TemplateView.as_view(template_name="application.html"), name="app",),
+    re_path(r"^.*$", TemplateView.as_view(template_name="application.html"), name="entry-point")
 ]
