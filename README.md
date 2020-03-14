@@ -1,6 +1,6 @@
 
 <p align="center">
-  <b> Automated Artificial Intelligence</b>
+ <!-- <b> Automated Artificial Intelligence</b>-->
 </p>
 
 <p align="center">
