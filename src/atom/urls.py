@@ -20,12 +20,10 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Login via browsable api
-    path('api-auth/', include('rest_framework.urls')),
     # Login via Rest
-    path('api/rest-auth/', include('rest_auth.urls')),
+    path('auth/', include('rest_auth.urls')),
     # Registration via Rest
-    path('api/rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('registration/', include('rest_auth.registration.urls')),
     # path("", TemplateView.as_view(template_name="application.html"), name="app",),
-    re_path(r"^.*$", TemplateView.as_view(template_name="application.html"), name="entry-point")
+    re_path(r"^.*$", TemplateView.as_view(template_name="index.html"), name="entry-point")
 ]
