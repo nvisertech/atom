@@ -1,38 +1,35 @@
 <template>
-  <v-card width="400" class="mx-auto mt-5">
-    <v-card-title>
-      <h1 class="display-1">Register</h1>
-    </v-card-title>
-    <v-card-text>
-      <v-form>
-        <v-text-field label="Username" prepend-icon="mdi-account-circle" />
-        <v-text-field
-          :type="showPassword ? 'text' : 'password'"
-          label="Password"
-          prepend-icon="mdi-lock"
-          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-          @click:append="showPassword = !showPassword"
-        />
-      </v-form>
-    </v-card-text>
-    <v-divider></v-divider>
-    <v-card-actions>
-      <v-btn color="success">Register</v-btn>
-      <v-spacer></v-spacer>
-      <v-btn color="info">Login</v-btn>
-    </v-card-actions>
-  </v-card>
+  <v-container>
+    <v-row>
+      <v-col>
+        <h1>Signup</h1>
+        <v-form>
+          <v-text-field label="Email" type="email"></v-text-field>
+          <v-autocomplete
+            label="Which browser do you use?"
+            :items="browsers"
+          ></v-autocomplete>
+          <v-file-input label="Attach profile picture"></v-file-input>
+          <v-text-field
+            v-model="birthday"
+            label="Birthday"
+            readonly
+          ></v-text-field>
+          <v-date-picker v-model="birthday"></v-date-picker>
+          <v-checkbox label="Agree to terms & conditions"></v-checkbox>
+          <v-btn type="submit" color="primary">Submit</v-btn>
+        </v-form>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 export default {
-  name: "RegisterPage",
-  data() {
-    return {
-      showPassword: false
-    };
-  }
-};
+  data: () => ({
+    birthday: '',
+    browsers: ['Chrome', 'Firefox', 'Safari', 'Edge', 'Brave']
+  })
+}
 </script>
 
-<style></style>
