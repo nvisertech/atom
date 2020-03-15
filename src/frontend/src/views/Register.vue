@@ -55,35 +55,35 @@ export default {
     agreeToTermsRules: [
       value =>
         !!value ||
-        'You must agree to the terms and conditions to sign up for an account.'
+        "You must agree to the terms and conditions to sign up for an account."
     ],
-    birthday: '',
-    browsers: ['Chrome', 'Firefox', 'Safari', 'Edge', 'Brave'],
-    email: '',
+    birthday: "",
+    browsers: ["Chrome", "Firefox", "Safari", "Edge", "Brave"],
+    email: "",
     emailRules: [
-      value => !!value || 'Email is required.',
-      value => value.indexOf('@') !== 0 || 'Email should have a username.',
-      value => value.includes('@') || 'Email should include an @ symbol.',
+      value => !!value || "Email is required.",
+      value => value.indexOf("@") !== 0 || "Email should have a username.",
+      value => value.includes("@") || "Email should include an @ symbol.",
       value =>
-        value.indexOf('.') - value.indexOf('@') > 1 ||
-        'Email should contain a valid domain.',
-      value => value.includes('.') || 'Email should include a period symbol.',
+        value.indexOf(".") - value.indexOf("@") > 1 ||
+        "Email should contain a valid domain.",
+      value => value.includes(".") || "Email should include a period symbol.",
       value =>
-        value.indexOf('.') <= value.length - 3 ||
-        'Email should contain a valid domain extension.'
+        value.indexOf(".") <= value.length - 3 ||
+        "Email should contain a valid domain extension."
     ],
     formValidity: false
   }),
   methods: {
     resetForm() {
-      this.$refs.signUpForm.reset()
+      this.$refs.signUpForm.reset();
     },
     resetValidation() {
-      this.$refs.signUpForm.resetValidation()
+      this.$refs.signUpForm.resetValidation();
     },
     validateForm() {
-      this.$refs.signUpForm.validate()
+      this.$refs.signUpForm.validate();
     }
   }
-}
+};
 </script>
