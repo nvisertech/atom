@@ -15,7 +15,6 @@ wiki/
 backend/.coverage.*
 backend/celerybeat.pid
 backend/celerybeat-schedule
-.env
 .pytest_cache
 .~lock.*
 notes/
